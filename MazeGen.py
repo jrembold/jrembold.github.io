@@ -67,8 +67,8 @@ def gen_maze(d, plot=False):
         plt.axis('off')
         plt.show()
 
-    return d, (0,entrance), (h,exit)
+    return d, (0,entrance), (h-1,exit)
 
 if __name__ == '__main__':
-    gen_maze(500, plot=True)
+    gen_maze(50, plot=True)
 
