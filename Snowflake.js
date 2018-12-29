@@ -1,10 +1,11 @@
 
 class Particle {
 
-	constructor(x,y) {
+	constructor(col) {
 		this.x = size/2;
 		this.y = random(-1,1);
 		this.r = 4;
+		this.color = color(col,200,255,100);
 	}
 
 	update() {
@@ -21,13 +22,13 @@ class Particle {
 
 	show() {
 		noStroke();
-		fill(255);
+		fill(this.color);
 		ellipse(this.x, this.y, this.r*2, this.r*2);
 	}
 
 	showmirror() {
 		noStroke();
-		fill(255);
+		fill(col+20,200,255,100);
 		ellipse(this.x, -this.y, this.r*2, this.r*2);
 	}
 
@@ -50,12 +51,14 @@ let dP = [];
 let arms = 6;
 let size = 0;
 let freeze = false;
+let col = 120;
 
 function setup() {
 	main = createCanvas(windowWidth, windowHeight);
 	size = min(windowWidth, windowHeight);
 	background(0);
-	P = new Particle();
+	colorMode(HSB,255);
+	P = new Particle(col);
 }
 
 
@@ -70,7 +73,8 @@ function draw() {
 		}
 		if (P.checkstop(dP) == true) {
 			dP.push(P);
-			P = new Particle();
+			col += .1
+			P = new Particle(col);
 			if (P.checkstop(dP) == true) {
 				dP = [];
 				//background(0);
@@ -94,4 +98,5 @@ function draw() {
 function keyPressed() {
 	background(0);
 	freeze = false;
+	col = random(120,150);
 }
