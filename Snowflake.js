@@ -54,7 +54,7 @@ let size = 0;
 let freeze = false;
 let colstart = 120;
 let autoplay = false;
-let delay = 120;
+let delay = 250;
 let frame_finished = 0;
 
 function setup() {
@@ -128,7 +128,7 @@ function resetFlake() {
 	freeze = false;
 	background(0);
 	colstart = random(120,140);
-	//dP = [];
+	dP = [];
 	push();
 	rotate(PI/2);
 	fill(200);
