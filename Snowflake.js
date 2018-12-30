@@ -5,7 +5,8 @@ class Particle {
 		this.x = size/2;
 		this.y = random(-1,1);
 		this.r = 4;
-		this.color = color(col,200,255,100);
+		this.color = color(col,250,255,150);
+		this.othercolor = color(col+20,150,255,150);
 	}
 
 	update() {
@@ -28,7 +29,7 @@ class Particle {
 
 	showmirror() {
 		noStroke();
-		fill(col+20,200,255,100);
+		fill(this.othercolor);
 		ellipse(this.x, -this.y, this.r*2, this.r*2);
 	}
 
@@ -51,20 +52,35 @@ let dP = [];
 let arms = 6;
 let size = 0;
 let freeze = false;
-let col = 120;
+let colstart = 120;
+let autoplay = false;
+let delay = 120;
+let frame_finished = 0;
 
 function setup() {
 	main = createCanvas(windowWidth, windowHeight);
 	size = min(windowWidth, windowHeight);
-	background(0);
 	colorMode(HSB,255);
-	P = new Particle(col);
+	resetFlake();
+	P = new Particle(colstart);
 }
 
 
 function draw() {
 	translate(width/2, height/2);
 	rotate(-PI/2);
+
+	if (frameCount == 1) {
+		resetFlake();
+	}
+
+	if (autoplay & frameCount-frame_finished > delay & freeze) {
+		resetFlake();
+		//freeze = false;
+		//background(0);
+		dispAutoText();
+		//colstart = random(120,140);
+	}
 
 	if (!freeze) {
 
@@ -73,30 +89,68 @@ function draw() {
 		}
 		if (P.checkstop(dP) == true) {
 			dP.push(P);
-			col += .1
-			P = new Particle(col);
+			colstart += .1
+			P = new Particle(colstart);
 			if (P.checkstop(dP) == true) {
 				dP = [];
 				//background(0);
-				arms = random([4,5,6,7,8,9]);
+				arms = random([5,6,7,8,9]);
 				freeze = true;
+				frame_finished = frameCount;
 			}
 		}
 
 		for (let i=0; i < arms; i++) {
 			rotate(2*PI/arms);
 			if (dP.length > 0) {
-				for (let d of dP) {
-					d.show();
-					d.showmirror();
-				}
+				dP[dP.length-1].show();
+				dP[dP.length-1].showmirror();
+				//for (let d of dP) {
+					//d.show();
+					//d.showmirror();
+				//}
 			}
 		}
 	}
 }
 
-function keyPressed() {
-	background(0);
+function dispAutoText() {
+	push();
+	rotate(PI/2);
+	fill(200);
+	textSize(20);
+	textAlign(RIGHT);
+	text('Autoplay On', width/2-5,height/2-5);
+	pop();
+}
+
+function resetFlake() {
 	freeze = false;
-	col = random(120,150);
+	background(0);
+	colstart = random(120,140);
+	//dP = [];
+	push();
+	rotate(PI/2);
+	fill(200);
+	textSize(10);
+	textAlign(LEFT);
+	text('Press any key for new snowflake', 5-width/2, height/2-15);
+	text('Press A for autoplay', 5-width/2, height/2-5);
+	pop();
+}
+
+function keyTyped() {
+	//background(0);
+	//freeze = false;
+	//colstart = random(120,140);
+	if (key === 'a') {
+		if (!autoplay) {
+			autoplay = true;
+			dispAutoText();
+		} else {
+			autoplay = false;
+		}
+	} else {
+		resetFlake();
+	}
 }
