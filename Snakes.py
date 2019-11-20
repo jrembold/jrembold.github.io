@@ -55,27 +55,34 @@ def generation(snake_list,k):
     return snake_list
 
 def main():
-    k = 2
+    k = 1
     pop = 50
     popcount = [pop]
     snakes = [Snake(k) for i in range(pop)]
     for i in range(1000):
-        k = .75*np.sin(2*np.pi/200*i)+1
+        # k = .75*np.sin(2*np.pi/200*i)+1
         snakes = generation(snakes,k)
         popcount.append(len(snakes))
 
     fig,ax1 = plt.subplots()
-    ax1.plot(popcount, '.-')
+    ax1.plot(popcount, '.-', label='Simulated Snakes')
     ax1.set_xlabel('Generations')
     ax1.set_ylabel('Population')
     ax1.grid(False)
+    ax1.legend()
 
     ax2 = ax1.twinx()
     ax2.plot(.75*np.sin(2*np.pi/200*np.arange(1000))+1,
-            color='red')
+            color='red',
+            label='Oscillating Gender Ratio')
     ax2.set_ylim(0,2)
     ax2.set_ylabel(r'$\frac{m}{f}$ Ratio')
+    ax2.legend()
     plt.show()
+
+
+if __name__ == '__main__':
+    main()
 
 
 
