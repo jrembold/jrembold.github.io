@@ -154,3 +154,8 @@ function keyTyped() {
 		resetFlake();
 	}
 }
+
+function windowResized() {
+	resizeCanvas(windowWidth, windowHeight)
+	resetFlake()
+}
