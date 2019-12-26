@@ -78,7 +78,7 @@ function draw() {
 		resetFlake();
 		//freeze = false;
 		//background(0);
-		dispAutoText();
+		//dispAutoText();
 		//colstart = random(120,140);
 	}
 
@@ -124,6 +124,14 @@ function dispAutoText() {
 	pop();
 }
 
+function removeAutoText() {
+	push();
+	fill(0);
+	rotate(PI/2)
+	rect(width/2-150, height/2-25, 150, 25);
+	pop();
+}
+
 function resetFlake() {
 	freeze = false;
 	background(0);
@@ -137,6 +145,9 @@ function resetFlake() {
 	text('Press any key for new snowflake', 5-width/2, height/2-15);
 	text('Press A for autoplay', 5-width/2, height/2-5);
 	pop();
+	if (autoplay) {
+		dispAutoText();
+	}
 }
 
 function keyTyped() {
@@ -149,6 +160,7 @@ function keyTyped() {
 			dispAutoText();
 		} else {
 			autoplay = false;
+			removeAutoText()
 		}
 	} else {
 		resetFlake();
@@ -157,5 +169,6 @@ function keyTyped() {
 
 function windowResized() {
 	resizeCanvas(windowWidth, windowHeight)
+	size = min(windowWidth, windowHeight);
 	resetFlake()
 }
