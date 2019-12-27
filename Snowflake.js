@@ -167,6 +167,20 @@ function keyTyped() {
 	}
 }
 
+function touchStarted() {
+	if (touches.length > 1) {
+		if (!autoplay) {
+			autoplay = true;
+			dispAutoText();
+		} else {
+			autoplay = false;
+			removeAutoText();
+		}
+	} else {
+		resetFlake();
+	}
+}
+
 function windowResized() {
 	resizeCanvas(windowWidth, windowHeight)
 	size = min(windowWidth, windowHeight);
