@@ -2,15 +2,90 @@
 <html>
   <head>
     <meta name="viewport" width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
     <style>
-		body {padding: 0; margin: 0; overflow: hidden;};
-		.button {text-align:center; border-radius:10px;};
+		html {
+			background-color: #282828;
+		}
+		.button {
+			text-align:center;
+			border-color: #718ea4;
+			border-width: 5px;
+			border-radius:10px;
+			padding: 15px 32px;
+			display: inline-block;
+			align: center;
+			margin: 20px;
+			font-size: 30px;
+			outline: none;
+		}
+		.button:hover {
+			background-color: #75af96;
+		}
+		h1 {
+			color: #bae397;
+		}
+		.alertify .ajs-header {
+			color:#000;
+			font-weight:700;
+			background: #75af96;
+			border-bottom: #eee 1px solid;
+			border-radius: 2px 2px 0 0;
+			font-size: 20px;
+		}
+		.alertify .ajs-body {
+			font-size: 40px;
+			text-align: center;
+			color: #29506D;
+		}
+		.alertify .ajs-footer .ajs-buttons .ajs-button {
+			color: #277553;
+			background-color: transparent;
+			border: 0;
+			outline: none;
+		}
+u
 	</style>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.16/p5.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.16/addons/p5.dom.min.js"></script>
-	<script src="lastgame.js"></script>
-    <script src="replay.js"></script>
+
+	<script src="https://cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+	<script type="text/javascript">
+		var ch12 = new Array()
+		ch12[0] = "https://willamette.edu/~jjrembold/class_files/phys339/HW/HW1.pdf"
+		ch12[1] = "https://willamette.edu/~jjrembold/class_files/phys339/HW/HW2.pdf"
+		ch12[2] = "https://willamette.edu/~jjrembold/class_files/phys339/HW/HW3.pdf"
+		ch12[3] = "https://willamette.edu/~jjrembold/class_files/phys339/HW/HW4.pdf"
+
+		var ch13 = new Array()
+		ch13[0] = "https://willamette.edu/~jjrembold/class_files/phys339/HW/HW5.pdf"
+		ch13[1] = "https://willamette.edu/~jjrembold/class_files/phys339/HW/HW6.pdf"
+
+		var ch14 = new Array()
+		ch14[0] = "https://willamette.edu/~jjrembold/class_files/phys339/CompDays/11_Inertial_Tensors.html"
+
+		function open_random_link(chapter_links) {
+			var r = Math.floor(Math.random()*(chapter_links.length ))
+			console.log(r)
+			var fname_start = chapter_links[r].split("").reverse().join("").indexOf('/');
+			//window.alert('You have received: ' + chapter_links[r].slice(-fname_start, -4));
+			alertify.alert('Paper Code', chapter_links[r].slice(-fname_start, -4), function(){
+				window.open(chapter_links[r]);}
+			);
+		}
+	</script>
   </head>
+
   <body>
+	  <center>
+		  <h1>Final Chapter Chooser</h1>
+	  <input type="button" class="button" value="Chapter 12" onClick="open_random_link(ch12)" target="_blank">
+	  <br>
+	  <input type="button" class="button" value="Chapter 13" onClick="open_random_link(ch13)" target="_blank">
+	  <br>
+	  <input type="button" class="button" value="Chapter 14" onClick="open_random_link(ch14)" target="_blank">
+	  <br>
+	  <input type="button" class="button" value="Chapter 15" onClick="open_random_link(ch15)" target="_blank">
+	  <br>
+	  <input type="button" class="button" value="Chapter 16" onClick="open_random_link(ch16)" target="_blank">
+	  </center>
   </body>
 </html>
