@@ -53,7 +53,7 @@ function decode() {
 	pswrd = input.value();
 	moves = []
 	for (i=0; i < pswrd.length; i++){
-		moves.push(30*pswrd.charCodeAt(i));
+		moves.push(1*pswrd.charCodeAt(i));
 	}
 	console.log(moves)
 
