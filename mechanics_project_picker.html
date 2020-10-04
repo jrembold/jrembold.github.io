@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
+	<link rel="shortcut icon" type="image/png" href="letter_J.png"/>
+	<title>Final Chapter Readings</title>
+    <style>
+		html {
+			background-color: #282828;
+		}
+		.button {
+			text-align:center;
+			border-color: #718ea4;
+			border-width: 5px;
+			border-radius:10px;
+			padding: 15px 32px;
+			display: inline-block;
+			align: center;
+			margin: 20px;
+			font-size: 30px;
+			outline: none;
+		}
+		.button:hover {
+			background-color: #75af96;
+		}
+		h1 {
+			color: #bae397;
+		}
+		p {
+			color: #75af96;
+		}
+		p a {
+			color: #bae397;
+		}
+		.alertify .ajs-header {
+			color:#000;
+			font-weight:700;
+			background: #75af96;
+			border-bottom: #eee 1px solid;
+			border-radius: 2px 2px 0 0;
+			font-size: 20px;
+		}
+		.alertify .ajs-body {
+			font-size: 40px;
+			text-align: center;
+			color: #29506D;
+		}
+		.alertify .ajs-footer .ajs-buttons .ajs-button {
+			color: #277553;
+			background-color: transparent;
+			border: 0;
+			outline: none;
+		}
+u
+	</style>
+
+	<script src="https://cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+	<script type="text/javascript">
+		var ch12 = new Array()
+		ch12[0] = "https://jrembold.github.io/Mech_Projects/Walrus Abampere.pdf"
+		ch12[1] = "https://jrembold.github.io/Mech_Projects/Shrimp Digit.pdf"
+		ch12[2] = "https://jrembold.github.io/Mech_Projects/Chicken Gauss.pdf"
+		ch12[3] = "https://jrembold.github.io/Mech_Projects/Elephant Tesla.pdf"
+		ch12[4] = "https://jrembold.github.io/Mech_Projects/Wolf Mole.pdf"
+		ch12[5] = "https://jrembold.github.io/Mech_Projects/Camel Gray.pdf"
+		ch12[6] = "https://jrembold.github.io/Mech_Projects/Tiger Firkin.pdf"
+
+		var ch13 = new Array()
+		ch13[0] = "https://jrembold.github.io/Mech_Projects/Goldfish Abvolt.pdf"
+		ch13[1] = "https://jrembold.github.io/Mech_Projects/Owl Weber.pdf"
+		ch13[2] = "https://jrembold.github.io/Mech_Projects/Hamster Gal.pdf"
+
+		var ch14 = new Array()
+		ch14[0] = "https://jrembold.github.io/Mech_Projects/Shark Coulomb.pdf"
+		ch14[1] = "https://jrembold.github.io/Mech_Projects/Lion Butt.pdf"
+		ch14[2] = "https://jrembold.github.io/Mech_Projects/Pig Watt.pdf"
+		ch14[3] = "https://jrembold.github.io/Mech_Projects/Parrot Rood.pdf"
+
+		var ch15 = new Array()
+		ch15[0] = "https://jrembold.github.io/Mech_Projects/Weasel Torr.pdf"
+		ch15[1] = "https://jrembold.github.io/Mech_Projects/Dolphin Tun.pdf"
+		ch15[2] = "https://jrembold.github.io/Mech_Projects/Bee Virgate.pdf"
+		ch15[3] = "https://jrembold.github.io/Mech_Projects/Kitten Quintal.pdf"
+
+		var ch16 = new Array()
+		ch16[0] = "https://jrembold.github.io/Mech_Projects/Goat Barleycorn.pdf"
+		ch16[1] = "https://jrembold.github.io/Mech_Projects/Leopard Dioptre.pdf"
+
+		function open_random_link(chapter_links) {
+			var r = Math.floor(Math.random()*(chapter_links.length ))
+			console.log(r)
+			var fname_start = chapter_links[r].split("").reverse().join("").indexOf('/');
+			//window.alert('You have received: ' + chapter_links[r].slice(-fname_start, -4));
+			alertify.alert('Paper Code', chapter_links[r].slice(-fname_start, -4), function(){
+				window.open(chapter_links[r]);}
+			);
+		}
+	</script>
+  </head>
+
+  <body>
+	  <center>
+		  <h1>Final Chapter Chooser</h1>
+		  <p>Fill out a peer evaluation form for each paper you read <a href='https://forms.gle/zDezerho9tnvjLkD9' target='_blank'>here</a>!</p>
+	  <input type="button" class="button" value="Chapter 12" onClick="open_random_link(ch12)" target="_blank">
+	  <br>
+	  <input type="button" class="button" value="Chapter 13" onClick="open_random_link(ch13)" target="_blank">
+	  <br>
+	  <input type="button" class="button" value="Chapter 14" onClick="open_random_link(ch14)" target="_blank">
+	  <br>
+	  <input type="button" class="button" value="Chapter 15" onClick="open_random_link(ch15)" target="_blank">
+	  <br>
+	  <input type="button" class="button" value="Chapter 16" onClick="open_random_link(ch16)" target="_blank">
+	  </center>
+  </body>
+</html>
