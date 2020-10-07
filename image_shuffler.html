@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0>
+    <style> body {padding: 0; margin: 0; background-color: black;} </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.3/p5.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.3/addons/p5.dom.min.js"></script>
+	<script src="imageshuffle.js"></script>
+    <!--<script src="image_test.js"></script>-->
+<style>
+input {
+	display: block;
+	margin: auto;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	font-size: 2em;
+	padding: 10px;
+	background-color: #333333;
+	color: #BBBBBB;
+}
+button {
+	display: block;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	margin: auto;
+	font-size: 2em;
+	background-color: #333333;
+	color: #BBBBBB;
+}
+canvas {
+	display: block;
+	margin: auto;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+#nav {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+
+ul {
+	padding: 0;
+	margin: 0px;
+}
+
+li {
+	display: flex;
+	color: #8FF5D3;
+}
+.button {
+	padding: 0px;
+	margin-left: 10px;
+	margin-right: 10px;
+	margin-top: 2px;
+	margin-bottom: 2px;
+	border: none;
+	background-color: black;
+	color: #8FF5D3;
+	font-size: 2em;
+}
+.button:hover {
+	color: red;
+}
+.top {
+	margin: 20px;
+}
+</style>
+  </head>
+  <body>
+	  <div class="top">
+		  <ul id="nav">
+			  <li><input type="button" class="button" value="HW1" onClick="openNewImage('HW1Sols_enc.png')" target="_blank"></li>
+			  <li><input type="button" class="button" value="HW2" onClick="openNewImage('HW2Sols_enc.png')" target="_blank"></li>
+			  <li><input type="button" class="button" value="HW3" onClick="openNewImage('HW3Sols_enc.png')" target="_blank"></li>
+			  <li><input type="button" class="button" value="HW4" onClick="openNewImage('HW4Sols_enc.png')" target="_blank"></li>
+			  <li><input type="button" class="button" value="HW5" onClick="openNewImage('HW5Sols_enc.png')" target="_blank"></li>
+		  </ul>
+		  <ul id="nav">
+			  <li><input type="button" class="button" value="CD1" onClick="openNewImage('CompDay1-Sols_enc.png')" target="_blank"></li>
+			  <li><input type="button" class="button" value="CD2" onClick="openNewImage('CompDay2-Sols_enc.png')" target="_blank"></li>
+			  <li><input type="button" class="button" value="CD3" onClick="openNewImage('CompDay3-Sols_enc.png')" target="_blank"></li>
+			  <li><input type="button" class="button" value="CD4" onClick="openNewImage('CompDay4-Sols_enc.png')" target="_blank"></li>
+			  <li><input type="button" class="button" value="CD5" onClick="openNewImage('CompDay5-Sols_enc.png')" target="_blank"></li>
+		  </ul>
+	  </div>
+	  <input type="text" onfocus="this.value=''" value="Enter Password" id="inputfield">
+  </body>
+</html>
