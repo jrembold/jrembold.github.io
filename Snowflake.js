@@ -94,7 +94,7 @@ function draw() {
 			if (P.checkstop(dP) == true) {
 				dP = [];
 				//background(0);
-				arms = random([5,6,7,8,9]);
+				//arms = random([5,6,7,8,9]);
 				freeze = true;
 				frame_finished = frameCount;
 			}
@@ -138,7 +138,7 @@ function resetFlake() {
 	colstart = random(120,140);
 	dP = [];
 	push();
-	rotate(PI/2);
+	rotate(random()*2*PI);
 	fill(200);
 	textSize(10);
 	textAlign(LEFT);
