@@ -138,7 +138,7 @@ function resetFlake() {
 	colstart = random(120,140);
 	dP = [];
 	push();
-	rotate(random()*2*PI);
+	rotate(PI/2);
 	fill(200);
 	textSize(10);
 	textAlign(LEFT);
